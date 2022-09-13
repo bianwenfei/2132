@@ -1,22 +1,12 @@
-from datetime import date, datetime, timedelta
-import math
-from turtle import color
-from wechatpy import WeChatClient
-from wechatpy.client.api import WeChatMessage, WeChatTemplate
-import requests
-import os
 import random
+from time import localtime
+# from time import tzset
+from requests import get, post
+from datetime import datetime, date
+from zhdate import ZhDate
+import sys
+import os
 
-today = datetime.now() + timedelta(hours=8)
-start_date = os.environ['START_DATE']
-city = os.environ['CITY']
-birthday = os.environ['BIRTHDAY']
-
-app_id = os.environ["APP_ID"]
-app_secret = os.environ["APP_SECRET"]
-
-user_ids = os.environ["USER_ID"].split("\n")
-template_id = os.environ["TEMPLATE_ID"]
 
 #天行数据api
 def get_weather1():
